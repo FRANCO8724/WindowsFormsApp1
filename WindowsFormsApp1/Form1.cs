@@ -115,7 +115,7 @@ namespace WindowsFormsApp1
                 if (arr2[i] == b)
                 {
                     arr2[i] = g;
-                }
+                } 
             }
         }
 
