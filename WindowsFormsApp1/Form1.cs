@@ -20,7 +20,12 @@ namespace WindowsFormsApp1
                 InitializeComponent();
                 arr = new string[100];
                 arr2 = new string[100];
-            dim = 0;
+                dim = 0;
+
+                 for(int i = 0; i < arr.Length; i++)
+            {
+                arr2[i] = "";
+            }
             }
 
           
@@ -53,7 +58,7 @@ namespace WindowsFormsApp1
             textBox3.Focus();
             textBox5.Text = "";
             textBox5.Focus();
-            MessageBox.Show("Rimosso");
+            MessageBox.Show("Rimosso.");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -67,7 +72,28 @@ namespace WindowsFormsApp1
             Modificato.Focus();
             textBox2.Text = "";
             textBox2.Focus();
-            MessageBox.Show("Modificato");
+            MessageBox.Show("Modificato.");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+                Prezztot(arr2); 
+                MessageBox.Show("Sconto applicato");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+
+            perc(arr2, listview2);
+
+            aggiornaVista(dim);
+
+            listView2.Text = "";
+            listView2.Focus();
+            textBox6.Text = "";
+            textBox6.Focus();
+
         }
 
         //funzioni di servizio
@@ -122,6 +148,7 @@ namespace WindowsFormsApp1
         public void aggiornaVista(int dim)
         {
             listView1.Items.Clear();
+
             for (int i = 0; i < dim; i++)
             {
                 if (string.IsNullOrEmpty(arr[i]) == true)
@@ -134,6 +161,43 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        public void Prezztot(string [] arr2)
+        {
+            listView1.Items.Clear();
+
+            int a = 0;
+            int x = 0;
+
+            int dim=100;
+
+
+            for(int i=0;i<dim;i++)
+            {
+                if (arr2[i] != "")
+                {
+
+                    x = Int32.Parse(arr2[i]);
+
+                    a = a + x;
+                }
+                else
+                {
+                    dim = 0;
+                }
+
+            }
+
+            listView1.Items.Add("Prezzo totale = " + a);
+
+        }
+
+        public int perc()
+        {
+
+
+        }
+
 
         public string prodString(string p,string c)
         {
@@ -182,6 +246,26 @@ namespace WindowsFormsApp1
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }
